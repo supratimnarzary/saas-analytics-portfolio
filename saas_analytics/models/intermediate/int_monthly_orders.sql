@@ -7,7 +7,7 @@ with orders as (
 final as (
 
     select
-        date_trunc('month', ordered_at)         as order_month,
+        cast(date_trunc('month', ordered_at) as date)   as order_month,
         customer_state,
         primary_payment_type,
         count(distinct order_id)                as total_orders,
